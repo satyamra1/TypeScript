@@ -121,4 +121,80 @@ TypeScript empowers JavaScript developers with modern features, error checking, 
 
 
 
+ ## Interface 
+ It acts as a blueprint, specifying the properties and methods that an entity should have, along with their respective types, without providing any implementation details.
+
+It comes in **2** senerio :-
+- Classes
+- Object
+
 ```
+
+```
+**Optional Chaining**:-
+
+Optional chaining in TypeScript, using the ?. operator, provides a safe and concise way to access properties or call methods within deeply nested objects or arrays, even when intermediate properties in the chain might be null or undefined.
+---
+ ## How it works:
+- When the ?. operator is used, if any part of the chain evaluates to null or undefined, the entire expression short-circuits and returns undefined instead of throwing a runtime error (like "Cannot read property 'x' of undefined").
+- This eliminates the need for verbose and repetitive if or && checks to ensure the existence of each level in a nested structure before attempting to access a property. 
+For example:-
+---  
+interface User{
+    name:String,
+    age:number,
+    isMale?:boolean,  //optional chaining
+    email?:String,   // optional chaining
+    password:number
+}
+
+```
+
+```
+---
+
+**How to create Class in TS**
+interface Person{
+    name:string,
+    age:number,
+    greet(phrase:string):void
+}
+class Student implements Person{
+    // this is for key
+    name : string;
+    age : number;
+    constructor(name:string,age:number){
+        this.name = name;
+        this.age =age;
+
+    }
+    greet(phrase:string){
+        console.log(`${phrase} ${this.name}`);
+    }
+}
+let s1 =new Student("Satyam",21)
+s1.greet("hello from")
+
+```
+
+```
+## Type in TS
+- Type aliases are more versatile than interfaces. They can define custom names for any type, including:
+  - Primitive types (e.g., string, number, boolean)
+  - Union types (e.g., string | number)
+  - Intersection types (e.g., TypeA & TypeB)
+  - Tuple types (e.g., [string, number]) 
+
+Example:-
+
+**type** Sat = number | string
+
+function sat(abc:Sat){
+    
+}
+- **Edge Case in type** :-
+ We can not use or ("|") in class if we have created 2 types and implemented it with eachother. It gives error.
+```
+```
+ ## Array in TS and Array of Objects in TS
+ 
